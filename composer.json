@@ -1,0 +1,25 @@
+{
+    "name": "burdock/php-sendmail",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hiraku Saito",
+            "email": "ittun55@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Burdock\\SendMail\\": "src/SendMail"
+        }
+    },
+    "require": {
+        "symfony/mailer": "^5.0",
+        "psr/log": "^1.1"
+    },
+    "require-dev": {
+        "monolog/monolog": "^2.0",
+        "phpunit/phpunit": "^8.5"
+    },
+    "description": "Thin wrapper for symfony/mailer"
+}
