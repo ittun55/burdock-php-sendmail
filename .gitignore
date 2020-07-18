@@ -4,3 +4,4 @@
 /node_modules/
 tmp/
 .phpunit.result.cache
+.env
