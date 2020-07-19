@@ -2,6 +2,7 @@
 
 namespace Burdock\SendMail;
 
+use Symfony\Component\Mailer\Bridge\Google\Transport\GmailSmtpTransport;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\Mailer\Transport;
@@ -16,10 +17,28 @@ class SendMail
      * SendMail constructor.
      * @param string $dsn 'smtp://account@email.domain:password@smtp.host.fqdn:port'
      */
-    public function __construct(string $dsn)
+    public function __construct(string $dsn=null)
+    {
+        if ($dsn) {
+            $transport = Transport::fromDsn($dsn);
+            $this->mailer = new Mailer($transport);
+        }
+    }
+
+    public static function getSmtp($dsn)
     {
         $transport = Transport::fromDsn($dsn);
-        $this->mailer = new Mailer($transport);
+        $sendmail = new SendMail();
+        $sendmail->mailer = new Mailer($transport);
+        return $sendmail;
+    }
+
+    public static function getGmail($auth)
+    {
+        $transport = new GmailSmtpTransport($auth['user'], $auth['pass']);
+        $sendmail = new SendMail();
+        $sendmail->mailer = new Mailer($transport);
+        return $sendmail;
     }
 
     /**
