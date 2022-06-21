@@ -1,0 +1,11 @@
+SMTP_HOST=mailhog
+SMTP_PORT=1025
+SMTP_USER=user
+SMTP_PASS=pass
+SMTP_TEST_FROM=sender@email.domain
+SMTP_TEST_TO=receiver@email.domain
+
+GMAIL_USER=
+GMAIL_PASS=
+GMAIL_TEST_FROM=
+GMAIL_TEST_TO=

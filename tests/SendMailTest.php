@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Burdock\SendMail\SendMail;
 use Monolog\Formatter\LineFormatter;
@@ -32,6 +32,7 @@ class SendMailTest extends TestCase
             'tos'  => [[ 'email' => $_ENV['SMTP_TEST_TO'], 'name' => 'Flower Garden' ]],
             'bccs' => [],
             'ccs'  => [[ 'email' => 'fuga@burdock.io', 'name' => 'Forest Flower' ]],
+            'replyTo' => 'hiraku@birdworks.jp',
             'subject' => 'メールの件名',
             'text' => 'メールの本文',
         ];
@@ -67,6 +68,7 @@ class SendMailTest extends TestCase
             'tos'  => [[ 'email' => $_ENV['GMAIL_TEST_TO'], 'name' => 'Flower Garden' ]],
             'bccs' => [],
             'ccs'  => [],
+            'replyTo' => 'hiraku@birdworks.jp',
             'subject' => 'メール送信のテスト',
             'text' => 'メール本文',
         ];

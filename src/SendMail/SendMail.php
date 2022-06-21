@@ -47,6 +47,7 @@ class SendMail
      *    'tos'  => [[ 'email' => 'hoge@burdock.io', 'name' => 'Flower Garden' ]],
      *    'bccs' => [],
      *    'ccs'  => [[ 'email' => 'fuga@burdock.io', 'name' => 'Forest Flower' ]],
+     *    'replyTo' => 'sender@email.domain',
      *    'subject' => 'メールの件名',
      *    'text' => 'メールの本文',
      *    'attachments' => [
@@ -88,6 +89,9 @@ class SendMail
                 $address = new Address($bcc['email'], $bcc['name']);
                 $email->addBcc($address);
             }
+        }
+        if (isset($params['replyTo'])) {
+            $email->replyTo($params['replyTo']);
         }
         $email->subject($params['subject']);
         $email->text($params['text']);

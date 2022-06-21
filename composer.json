@@ -20,7 +20,7 @@
     },
     "require-dev": {
         "monolog/monolog": "^2.0",
-        "phpunit/phpunit": "^8.5",
+        "phpunit/phpunit": "^9.5",
         "vlucas/phpdotenv": "^5.1"
     },
     "description": "Thin wrapper for symfony/mailer"
