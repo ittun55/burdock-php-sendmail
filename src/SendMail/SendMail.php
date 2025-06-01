@@ -33,9 +33,9 @@ class SendMail
         return $sendmail;
     }
 
-    public static function getGmail($auth)
+    public static function getGmail($user, $pass)
     {
-        $transport = new GmailSmtpTransport($auth['user'], $auth['pass']);
+        $transport = new GmailSmtpTransport($user, $pass);
         $sendmail = new SendMail();
         $sendmail->mailer = new Mailer($transport);
         return $sendmail;
