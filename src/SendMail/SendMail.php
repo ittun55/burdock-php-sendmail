@@ -17,7 +17,7 @@ class SendMail
      * SendMail constructor.
      * @param string $dsn 'smtp://account@email.domain:password@smtp.host.fqdn:port'
      */
-    public function __construct(string $dsn=null)
+    public function __construct(?string $dsn=null)
     {
         if ($dsn) {
             $transport = Transport::fromDsn($dsn);
